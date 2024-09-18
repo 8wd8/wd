@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN" style="--header-height: 72.3542px;">
-<head>
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8">
     <!---------------------------------------------------背景图--------------------------------------------------->
     <!---------------------------------------------------背景图--------------------------------------------------->
@@ -9,26 +9,111 @@
     <!---------------------------------------------------背景图--------------------------------------------------->
     <!---------------------------------------------------背景图--------------------------------------------------->
     <!---------------------------------------------------背景图--------------------------------------------------->
+    <meta charset="UTF-8">
+
     <meta name="generator" content="Hugo 0.120.1"><meta name="theme-color" content="#fff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    
     <meta http-equiv="Cache-Control" content="no-transform">
+    
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>CetnOS7 PPPoE Server | ikuriko</title>
-    <link rel="stylesheet" href="https://8wd8.github.io/wd/css/meme.min.css">
-    <script src="https://8wd8.github.io/wd/js/meme.min.js"></script>
+
+    <title>CentOS7 安装PPTP服务器 | Wendy</title>
+
+    <link rel="stylesheet" href="https://8wd8.github.io/wd//css/css/meme.min.744c3bda27090f0c08cc43b01d35f12e6f481759600dd9f8a1190de9e9bb12a2.css">
+
+    
+    
+        <script src="https://8wd8.github.io/wd/js/js/meme.min.1343c21422ddd723ef2bde0b482ea241020c7d5c128b72528dd13d375565510b.js"></script>
+
+    
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link rel="stylesheet" href="https://8wd8.github.io/wd/css/wdfonts01.css?family=Nunito:wght@300;400&amp;display=swap" media="all" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://8wd8.github.io/wd/css/wdfonts01.css?family=Nunito:wght@300;400&amp;display=swap" /></noscript>
-    <meta name="author" content="ikuriko"><meta name="description" content="在CentOS7上搭建PPPoE Server">
-    <link rel="shortcut icon" href="https://8wd8.github.io/wd/imgs/wendylogo/ico/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&amp;display=swap" media="all" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&amp;display=swap" /></noscript>
+
+    <meta name="author" content="ikuriko"><meta name="description" content="Firewalld是基于区域(zone)的防火墙规则管理工具">
+
+    <link rel="shortcut icon" href="https://8wd8.github.io/wd/imgs/ico/favicon.ico" type="image/x-icon">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="ikuriko">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="ikuriko">
+    <meta name="msapplication-starturl" content="../../">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png">
+    <link rel="manifest" href="/manifest.json">
+
+    
+    
+
+    
+    <link rel="canonical" href="https://ikuriko.github.io/posts/firewalld/">
+    
+
 <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2022-12-30T14:22:06+08:00",
+        "dateModified": "2022-12-30T15:53:58+08:00",
+        "url": "https://ikuriko.github.io/posts/firewalld/",
+        "headline": "Firewalld",
+        "description": "Firewalld是基于区域(zone)的防火墙规则管理工具",
+        "inLanguage" : "zh-CN",
+        "articleSection": "posts",
+        "wordCount":  536 ,
+        "image": "https://ikuriko.github.io/icons/apple-touch-icon.png",
+        "author": {
+            "@type": "Person",
+            "description": "Mosi Meta",
+            "email": "ikuriko@qq.com",
+            "image": "https://ikuriko.github.io/icons/apple-touch-icon.png",
+            "url": "https://ikuriko.github.io",
+            "name": "ikuriko"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "ikuriko",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ikuriko.github.io/icons/apple-touch-icon.png"
+            },
+            "url": "https://ikuriko.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://ikuriko.github.io/"
+        }
+    }
 </script>
-<meta property="og:title" content="CetnOS7 PPPoE Server">
-<meta property="og:description" content="在CentOS7上搭建PPPoE Server">
-<meta property="og:url" content="https://ikuriko.github.io/posts/cetnos7_pppoe/">
+
+    
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:site" content="@akur1ko">
+<meta name="twitter:creator" content="@akur1ko">
+
+    
+
+
+
+<meta property="og:title" content="Firewalld">
+<meta property="og:description" content="Firewalld是基于区域(zone)的防火墙规则管理工具">
+<meta property="og:url" content="https://ikuriko.github.io/posts/firewalld/">
 <meta property="og:site_name" content="ikuriko">
-<meta property="og:locale" content="zh"><meta property="og:image" content="https://8wd8.github.io/wd/imgs/wendylogo/png/favicon.png">
+<meta property="og:locale" content="zh"><meta property="og:image" content="https://ikuriko.github.io/icons/apple-touch-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2022-12-30T14:22:06+08:00">
+    <meta property="article:modified_time" content="2022-12-30T15:53:58+08:00">
     
     <meta property="article:section" content="posts">
 
@@ -69,12 +154,22 @@
     .ai-assist-highlight {
       background: yellow;
     }
-  </style><link rel="prefetch" href="https://codewendy.com/tags/linux-services/">
-</head>
-<body>
+  </style></head>
+
+    <body>
         <div class="container">
             
+    <header class="header">
+        
+            
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true">
     
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
 
 
 
@@ -88,12 +183,12 @@
 
         <article class="content post h-entry" data-align="justify" data-type="posts" data-toc-num="true">
 
-            <h1 class="post-title p-name">CetnOS7 PPPoE Server</h1>
+            <h1 class="post-title p-name">CentOS7 安装PPTP服务器</h1>
 
             
 
             
-                <div class="post-description p-summary">在CentOS7上搭建PPPoE Server</div>
+                <div class="post-description p-summary">CentOS7 安装PPTP服务器</div>
                 
             
 
@@ -121,65 +216,222 @@
 
             <nav class="contents">
   <h2 id="contents" class="contents-title">目录</h2><ol class="toc">
+    <li><a id="contents:安装epel源" href="#安装epel源">安装epel源</a></li>
     <li><a id="contents:安装软件包" href="#安装软件包">安装软件包</a></li>
-    <li><a id="contents:修改配置文件" href="#修改配置文件">修改配置文件</a></li>
-    <li><a id="contents:添加用户" href="#添加用户">添加用户</a></li>
-    <li><a id="contents:服务启动文件" href="#服务启动文件">服务启动文件</a></li>
-    <li><a id="contents:启动服务开机自启" href="#启动服务开机自启">启动服务&amp;开机自启</a></li>
-  </ol>
-</nav><div class="post-body e-content">
-                <h2 id="安装软件包"><a href="#安装软件包" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:安装软件包" class="headings">安装软件包</a></h2>
-<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum -y install rp-pppoe
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><h2 id="修改配置文件"><a href="#修改配置文件" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:修改配置文件" class="headings">修改配置文件</a></h2>
-<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/ppp/pppoe-server-options
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># PPP options for the PPPoE server</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># LIC: GPL</span>
-</span></span><span class="line"><span class="cl">require-chap
-</span></span><span class="line"><span class="cl">require-pap
-</span></span><span class="line"><span class="cl">auth
-</span></span><span class="line"><span class="cl">login
-</span></span><span class="line"><span class="cl">lcp-echo-interval <span class="m">10</span>
-</span></span><span class="line"><span class="cl">lcp-echo-failure 2.4.4
-</span></span><span class="line"><span class="cl">logfile /var/log/pppoe-server.log
-</span></span><span class="line"><span class="cl">ms-dns 114.114.114.114
-</span></span><span class="line"><span class="cl">ms-dns 8.8.8.8
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><p>配置分发的 IP 地址池</p>
-<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim&nbsp;/etc/ppp/pppoe-server-env
-</span></span></code><button class="copy-button" type="button">复制</button></pre></div><div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">INT</span><span class="o">=</span>enp1s0
-</span></span><span class="line"><span class="cl"><span class="nv">LOCAL</span><span class="o">=</span>192.168.1.1
-</span></span><span class="line"><span class="cl"><span class="nv">START</span><span class="o">=</span>192.168.1.2
-</span></span><span class="line"><span class="cl"><span class="nv">NUMBER</span><span class="o">=</span><span class="m">253</span>
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><h2 id="添加用户"><a href="#添加用户" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:添加用户" class="headings">添加用户</a></h2>
-<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/ppp/chap-secrets
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Secrets for authentication using CHAP</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># client        server  secret                  IP addresses</span>
-</span></span><span class="line"><span class="cl"><span class="s2">"test"</span> * <span class="s2">"123456"</span> *
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><h2 id="服务启动文件"><a href="#服务启动文件" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:服务启动文件" class="headings">服务启动文件</a></h2>
-<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/systemd/system/pppoe-server.service
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
-</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>PPPoE Server.
-</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>syslog.target
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
-</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>forking
-</span></span><span class="line"><span class="cl"><span class="nv">EnvironmentFile</span><span class="o">=</span>/etc/ppp/pppoe-server-env
-</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/sbin/pppoe-server -I <span class="nv">$INT</span> -L <span class="nv">$LOCAL</span> -R <span class="nv">$START</span> -N <span class="nv">$NUMBER</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
-</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div><h2 id="启动服务开机自启"><a href="#启动服务开机自启" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:启动服务开机自启" class="headings">启动服务&amp;开机自启</a></h2>
-<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl start pppoe-server
-</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> pppoe-server
-</span></span></code><button class="copy-button" type="button" style="visibility: hidden; opacity: 0;">复制</button></pre></div>
-            </div>
-</article>
-</div>
-</main>
-<footer id="footer" class="footer">
-    </footer>
-    </div>
-<script src="https://8wd8.github.io/wd/js/medium-zoom.min.js"></script>
+    <li><a id="contents:修改配置文件/etc/pptpd.conf" href="#修改配置文件/etc/pptpd.conf">修改配置文件/etc/pptpd.conf</a></li>
+    <li><a id="contents:修改配置文件/etc/ppp/options.pptpd" href="#修改配置文件/etc/ppp/options.pptpd">修改配置文件/etc/ppp/options.pptpd</a></li>
+    <li><a id="contents:开启内核转发" href="#开启内核转发">开启内核转发</a></li>
+    <li><a id="contents:Iptables端口开放" href="#Iptables端口开放">Iptables端口开放</a></li>
+    <li><a id="contents:修改/etc/ppp/ip-up文件" href="#修改/etc/ppp/ip-up文件">修改/etc/ppp/ip-up文件</a></li>
+    <li><a id="contents:常用命令" href="#常用命令">常用命令</a></li>
+  </ol></nav>
+<div class="post-body e-content">
+                <h2 id="安装epel源"><a href="#安装epel源" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:安装epel源" class="headings">安装epel源</a></h2>
 
-<script src="https://8wd8.github.io/wd/js/instantpage.min.js" type="module" defer=""></script>
-</body>
-</html>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y epel-release<span class="o">
+</span></span></span></code></div>
+<p>下载<code>腾讯云</code>软件源的<code>epel</code>repo文件</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -o /etc/yum.repos.d/epel.repo http://mirrors.cloud.tencent.com/repo/epel-7.repo && yum clean all && yum makecache<span class="o">
+</span></span></span></code></div>
+
+<button class="copy-button" type="button">复制</button></pre></div><h2 id="安装软件包"><a href="#安装软件包" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:安装软件包" class="headings">安装软件包</a></h2>
+<p>安装<code>ppp</code>ppp-devel<code>pptpd</code><code>iptables-services</code>iptables</p> 
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y ppp ppp-devel pptpd iptables iptables-services<span class="o">
+</span><span class="o"></span></span></span></code><button class="copy-button" type="button">复制</button></pre></div><h2 id="修改配置文件/etc/pptpd.conf"><a href="#修改配置文件/etc/pptpd.conf" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:修改配置文件/etc/pptpd.conf" class="headings">修改配置文件/etc/pptpd.conf</a></h2>
+<p>修改配置文件<code>/etc/pptpd.conf</code><code></code></p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">remoteip 172.36.82.10-238,172.36.82.245
+</span></span><span class="line"><span class="cl">localip 172.36.82.1
+</span></span></code><button class="copy-button" type="button">复制</button></pre>
+<p>一键修改配置文件<code>/etc/pptpd.conf</code><code></code></p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat > /etc/pptpd.conf << EOF
+</span></span><span class="line"><span class="cl">remoteip 172.36.82.10-238,172.36.82.245
+</span></span><span class="line"><span class="cl">localip 172.36.82.1
+</span></span><span class="line"><span class="cl">EOF
+</span></span></code><button class="copy-button" type="button">复制</button></pre>
+<button class="copy-button" type="button">复制</button></pre></div><h2 id="修改配置文件/etc/ppp/options.pptpd"><a href="#修改配置文件/etc/ppp/options.pptpd" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:修改配置文件/etc/ppp/options.pptpd" class="headings">修改配置文件/etc/ppp/options.pptpd</a></h2>
+<p>修改配置文件/etc/ppp/options.pptpd</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/ppp/options.pptpd</span></span></code></pre>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat > /etc/ppp/options.pptpd << EOF
+</span></span><span class="line"><span class="cl">name pptpd
+</span></span><span class="line"><span class="cl">refuse-pap
+</span></span><span class="line"><span class="cl">refuse-chap
+</span></span><span class="line"><span class="cl">refuse-mschap
+</span></span><span class="line"><span class="cl">require-mschap-v2
+</span></span><span class="line"><span class="cl">require-mppe-128
+</span></span><span class="line"><span class="cl">ms-dns 223.5.5.5
+</span></span><span class="line"><span class="cl">ms-dns 8.8.8.8
+</span></span><span class="line"><span class="cl">mtu 1400
+</span></span><span class="line"><span class="cl">mru 1400
+</span></span><span class="line"><span class="cl">#proxyarp
+</span></span><span class="line"><span class="cl">lock
+</span></span><span class="line"><span class="cl">nobsdcomp
+</span></span><span class="line"><span class="cl">novj
+</span></span><span class="line"><span class="cl">novjccomp
+</span></span><span class="line"><span class="cl">nologfd
+</span></span><span class="line"><span class="cl">logfile /var/log/pptpd.log
+</span></span><span class="line"><span class="cl">EOF
+</span></span></code><button class="copy-button" type="button">复制</button></pre><h2 id="开启内核转发"><a href="#开启内核转发" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:开启内核转发" class="headings">开启内核转发</a></h2>
+<p>开启开启内核转发<code>/etc/sysctl.conf</code>加入<code>net.ipv4.ip_forward=1</code></p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat > /etc/sysctl.conf << EOF
+</span></span><span class="line"><span class="cl">net.ipv4.ip_forward=1
+</span></span><span class="line"><span class="cl">EOF
+</span></span></code><button class="copy-button" type="button">复制</button></pre>
+<p>立即生效</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sysctl -p</span></span></code></pre></span></span></code><button class="copy-button" type="button">复制</button></pre>
+
+<p>富贵则写法：</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --permanent --zone<span class="o">=</span>external --add-rich-rule<span class="o">=</span><span class="s1">'rule family=ipv4 source address=192.168.66.0/24 forward-port port=55265 protocol=tcp to-port=22 to-addr=192.168.10.2'</span>
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div><p>直接规则写法：</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --permanent --zone<span class="o">=</span>external --direct --add-rule ipv4 nat PREROUTING <span class="m">0</span> -s 192.168.66.0/24 -d 192.168.66.0/24 -p tcp --dport <span class="m">55265</span> -j DNAT --to-destination 192.168.10.2:22
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div><p>查询开启内核转发</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --list-forward-ports
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div><h2 id="Iptables端口开放"><a href="#Iptables端口开放" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:Iptables端口开放" class="headings">Iptables端口开放</a></h2>
+<p>开放端口：</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iptables -A INPUT -i lo -j ACCEPT
+</span></span><span class="line"><span class="cl">iptables -A INPUT -m state –state ESTABLISHED -j ACCEPT
+</span></span><span class="line"><span class="cl">iptables -A INPUT -p icmp -m icmp –icmp-type 8 -j ACCEPT
+</span></span><span class="line"><span class="cl">iptables -A INPUT -p tcp –dport 1723 -j ACCEPT
+</span></span><span class="line"><span class="cl">iptables -A INPUT -p gre -j ACCEPT
+</span></span><span class="line"><span class="cl">iptables -t nat -A POSTROUTING -s  172.36.82.0/24 -o eth0 -j MASQUERADE
+</span></span></code><button class="copy-button" type="button">复制</button></pre>
+<p>保存规则并重启Iptables：</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">service iptables save
+</span></span><span class="line"><span class="cl">systemctl restart iptables
+</span></span></code><button class="copy-button" type="button">复制</button></pre>
+
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">firewall-cmd --permanent --zone<span class="o">=</span>external --direct --add-rule ipv4 nat PREROUTING <span class="m">0</span> -s 192.168.68.2/32 -d 192.168.68.1/32 -j DNAT --to-destination 192.168.66.2
+</span></span><span class="line"><span class="cl">firewall-cmd --permanent --zone<span class="o">=</span>external --direct --add-rule ipv4 nat POSTROUTING <span class="m">0</span> -s 192.168.66.2/32 -d 192.168.68.2/32 -j SNAT --to-source 192.168.68.1
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div><h2 id="修改/etc/ppp/ip-up文件"><a href="#修改/etc/ppp/ip-up文件" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:修改/etc/ppp/ip-up文件" class="headings">修改/etc/ppp/ip-up文件</a></h2>
+
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/ppp/ip-up
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div>
+<p>倒数第二行加入</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ifconfig $1 mtu 1500
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div>
+<p>重启PPTP</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl restart pptpd
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div>
+
+<div class="post-body e-content">
+<h2 id="常用命令"><a href="#常用命令" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:常用命令" class="headings">常用命令</a></h2>
+<p>启动PPTP</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl start pptpd
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div>
+<p>重启PPTP</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl restart pptpd
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div>
+<p>开机自启</p>
+<div class="highlight" style="position: relative;"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl enable pptpd
+</span></span></code><button class="copy-button" type="button">复制</button></pre></div>
+
+
+<h1 id="heading"><a href="#heading" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></a><a href="#contents:heading" class="headings"></a></h1>
+
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+
+
+        
+
+
+        
+
+
+        
+    
+    
+
+
+
+        
+    
+        
+    
+
+
+
+        
+    
+
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top show">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"></path></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        
+    </footer>
+
+
+        </div>
+            
+
+            
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer=""></script>
+
+
+
+
+
+
+
+    
+
+<!----></body><div id="ai-assist-root-bangs"></div><div id="ai-assist-root-new"></div></html>
