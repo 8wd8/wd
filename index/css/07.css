@@ -219,16 +219,10 @@ body .is-layout-grid>* {
 	margin:0
 }
 body {
-	background-color:var(--wd--preset--color--background);
-	color:var(--wd--preset--color--body-text);
-	font-family:var(--wd--preset--font-family--poppins);
-	font-size:var(--wd--preset--font-size--normal);
-	font-weight:400;
-	line-height:var(--wd--custom--typography--line-height--paragraph);
-	padding-top:0;
-	padding-right:0;
-	padding-bottom:0;
-	padding-left:0
+background-image: url('/wd/wendyrouteros/bj/bg1.png');
+background-size: cover; /* 背景图片覆盖整个容器 */
+/* background-repeat: no-repeat; 背景图片不重复 */
+opacity: 1.5; /* 背景图片透明度 */
 }
 a:where(:not(.wd-element-button)) {
 	color:var(--wd--preset--color--text-link);
