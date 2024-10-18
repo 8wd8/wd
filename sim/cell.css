@@ -470,7 +470,7 @@ body {
 .shadow-theme2 {
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.02);
 	border-radius: var(--marRadius);
-	background-color: ##19ff0036;
+	background-color: #19ff0036;
 	transition: box-shadow 0.4s
 }
 
