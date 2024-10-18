@@ -1,0 +1,12 @@
+document.writeln("<link href=\'https://8wd8.github.io/wd/index/css/00.css\' rel=\'stylesheet\' type=\'text/css\'>");
+document.writeln("<meta charset=\'UTF-8\'>");
+document.writeln("<meta http-equiv=\'X-UA-Compatible\' content=\'IE=edge,chrome=1\'>");
+document.writeln("<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'>");
+document.writeln("<title>Wendy-Network –文迪网络</title>");
+document.writeln("<link href=\'https://8wd8.github.io/wd/index/css/02.css\' rel=\'stylesheet\' type=\'text/css\'>");
+document.writeln("<link href=\'https://8wd8.github.io/wd/index/css/04.css\' rel=\'stylesheet\' type=\'text/css\'>");
+document.writeln("<link href=\'https://8wd8.github.io/wd/index/css/06.css\' rel=\'stylesheet\' type=\'text/css\'>");
+document.writeln("<link href=\'https://8wd8.github.io/wd/index/css/07.css\' rel=\'stylesheet\' type=\'text/css\'>");
+document.writeln("<link href=\'https://8wd8.github.io/wd/index/css/08.css\' rel=\'stylesheet\' type=\'text/css\'>");
+document.writeln("<link href=\'https://8wd8.github.io/wd/index/css/09.css\' rel=\'stylesheet\' type=\'text/css\'>");
+document.writeln("<link rel=\'icon\' href=\'https://8wd8.github.io/wd/favicon.ico\'>");
