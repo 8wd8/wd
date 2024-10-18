@@ -14,8 +14,8 @@
 	--conBgcolor: #ffffff;   /* 导航、卡片、内容的背景颜色 */
 	--bodyBground: #f5f5f6;  /* 页面背景颜色 */
 	--fontColor: #5a5c69;    /* 普通文本的颜色 */
-	--aColor:  #333333;      /* a 标签的颜色 */
-	--aHoverColor:  #f6607d; /* a 标签 hover 状态的颜色 */
+	--aColor: #d53f3f;      /* a 标签的颜色 */
+	--aHoverColor:  #ea60f6; /* a 标签 hover 状态的颜色 */
 	--lightColor: #929292      /* 比较浅一点的文本颜色 */
 }
 /* 定义所有元素的 width =（border+padding），方便后续计算 */
