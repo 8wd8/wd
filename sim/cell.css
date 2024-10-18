@@ -455,10 +455,38 @@ body {
 /* 禁止滚动 */
 .scroll-fix{overflow:hidden}
 
-/* 阴影
+/* 阴影1
    文章列出页的文章摘要卡片和边栏组件卡片的阴影和鼠标浮动后的阴影
 ---------------------------------------------------*/
-/* .shadow-theme {
+.shadow-theme1 {
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.02);
+	border-radius: var(--marRadius);
+	background-color: #ffda0069;
+	transition: box-shadow 0.4s
+}
+/* 阴影2
+   文章列出页的文章摘要卡片和边栏组件卡片的阴影和鼠标浮动后的阴影
+---------------------------------------------------*/
+.shadow-theme2 {
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.02);
+	border-radius: var(--marRadius);
+	background-color: #ffda0069;
+	transition: box-shadow 0.4s
+}
+
+/* 阴影3
+   文章列出页的文章摘要卡片和边栏组件卡片的阴影和鼠标浮动后的阴影
+---------------------------------------------------*/
+.shadow-theme3 {
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.02);
+	border-radius: var(--marRadius);
+	background-color: #ffda0069;
+	transition: box-shadow 0.4s
+}
+/* 阴影4
+   文章列出页的文章摘要卡片和边栏组件卡片的阴影和鼠标浮动后的阴影
+---------------------------------------------------*/
+.shadow-theme4 {
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.02);
 	border-radius: var(--marRadius);
 	background-color: #ffda0069;
