@@ -10,9 +10,9 @@
 }
 /* 一些变量 */
 * {
-	--marRadius: 8px;          /* 卡片圆角 */
-	--conBgcolor: #ffffff;   /* 导航、卡片、内容的背景颜色 */
-	--bodyBground: #f5f5f6;  /* 页面背景颜色 */
+	--marRadius: 16px;          /* 卡片圆角 */
+	--conBgcolor: #d6d6d6;   /* 导航、卡片、内容的背景颜色 */
+	--bodyBground: #292956;  /* 页面背景颜色 */
 	--fontColor: #0d2bef;    /* 普通文本的颜色 */
 	--aColor: #d53f3f;      /* a 标签的颜色 */
 	--aHoverColor:  #ea60f6; /* a 标签 hover 状态的颜色 */
@@ -32,7 +32,7 @@ body {
 	font-family: helvetica neue,Helvetica,Arial,sans-serif
 }
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 0;
+	margin-top: auto;
 	font-weight: 400
 }
 p {
@@ -948,14 +948,14 @@ body {
 /* 条目的其他内容 */
 .loglist-content {
 	font-size: medium;
-	margin-left: 1px;
+	margin-left: 5px;
 	margin-bottom: 5px;
-	margin-right: 3px;
+	margin-right: 5px;
 	margin-top: 30px
 }
 .log-info {
 	font-size: small;
-	letter-spacing: 0.5px;
+	letter-spacing: 1.5px;
 }
 .log-info a {
 	color: var(--lightColor)
